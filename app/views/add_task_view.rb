@@ -5,6 +5,7 @@ class AddTaskView < UIView
     @title_label.translatesAutoresizingMaskIntoConstraints = false
     @notes_label.translatesAutoresizingMaskIntoConstraints = false
 
+    # @title_label.top = layout_guide.bottom * 1.0 + 20
     addConstraint(
       NSLayoutConstraint.constraintWithItem(
         @title_label,
@@ -17,6 +18,7 @@ class AddTaskView < UIView
       )
     )
 
+    # @title_label.left = self.left * 1.0 + 20
     addConstraint(
       NSLayoutConstraint.constraintWithItem(
         @title_label,
@@ -29,6 +31,7 @@ class AddTaskView < UIView
       )
     )
 
+    # @title_label.right = self.right * 1.0 + -20
     addConstraint(
       NSLayoutConstraint.constraintWithItem(
         @title_label,
@@ -41,6 +44,7 @@ class AddTaskView < UIView
       )
     )
 
+    # @notes_label.top = @title_label.bottom * 1.0 + 20
     addConstraint(
       NSLayoutConstraint.constraintWithItem(
         @notes_label,
@@ -53,6 +57,7 @@ class AddTaskView < UIView
       )
     )
 
+    # @notes_label.left = self.left * 1.0 + 20
     addConstraint(
       NSLayoutConstraint.constraintWithItem(
         @notes_label,
@@ -65,6 +70,7 @@ class AddTaskView < UIView
       )
     )
 
+    # @notes_label.right = self.right * 1.0 + 20
     addConstraint(
       NSLayoutConstraint.constraintWithItem(
         @notes_label,
