@@ -5,81 +5,32 @@ class AddTaskView < UIView
     @title_label.translatesAutoresizingMaskIntoConstraints = false
     @notes_label.translatesAutoresizingMaskIntoConstraints = false
 
-    # @title_label.top = layout_guide.bottom * 1.0 + 20
-    addConstraint(
-      NSLayoutConstraint.constraintWithItem(
-        @title_label,
-        attribute: NSLayoutAttributeTop,
-        relatedBy: NSLayoutRelationEqual,
-        toItem: layout_guide,
-        attribute: NSLayoutAttributeBottom,
-        multiplier: 1.0,
-        constant: 20
-      )
-    )
-
-    # @title_label.left = self.left * 1.0 + 20
-    addConstraint(
-      NSLayoutConstraint.constraintWithItem(
-        @title_label,
-        attribute: NSLayoutAttributeLeft,
-        relatedBy: NSLayoutRelationEqual,
-        toItem: self,
-        attribute: NSLayoutAttributeLeft,
-        multiplier: 1.0,
-        constant: 20
-      )
-    )
-
     # @title_label.right = self.right * 1.0 + -20
-    addConstraint(
-      NSLayoutConstraint.constraintWithItem(
-        @title_label,
-        attribute: NSLayoutAttributeRight,
-        relatedBy: NSLayoutRelationEqual,
-        toItem: self,
-        attribute: NSLayoutAttributeRight,
-        multiplier: 1.0,
-        constant: -20
+    # @title_label.left = self.left * 1.0 + 20
+    addConstraints(
+      NSLayoutConstraint.constraintsWithVisualFormat(
+        '|-padding-[title_label]-padding-|',
+        options: NSLayoutFormatDirectionLeadingToTrailing,
+        metrics: { 'padding' => 20 },
+        views: { 'title_label' => @title_label }
       )
     )
 
-    # @notes_label.top = @title_label.bottom * 1.0 + 20
-    addConstraint(
-      NSLayoutConstraint.constraintWithItem(
-        @notes_label,
-        attribute: NSLayoutAttributeTop,
-        relatedBy: NSLayoutRelationEqual,
-        toItem: @title_label,
-        attribute: NSLayoutAttributeBottom,
-        multiplier: 1.0,
-        constant: 20
+    addConstraints(
+      NSLayoutConstraint.constraintsWithVisualFormat(
+        '|-padding-[notes_label]-padding-|',
+        options: NSLayoutFormatDirectionLeadingToTrailing,
+        metrics: { 'padding' => 20 },
+        views: { 'notes_label' => @notes_label }
       )
     )
 
-    # @notes_label.left = self.left * 1.0 + 20
-    addConstraint(
-      NSLayoutConstraint.constraintWithItem(
-        @notes_label,
-        attribute: NSLayoutAttributeLeft,
-        relatedBy: NSLayoutRelationEqual,
-        toItem: self,
-        attribute: NSLayoutAttributeLeft,
-        multiplier: 1.0,
-        constant: 20
-      )
-    )
-
-    # @notes_label.right = self.right * 1.0 + 20
-    addConstraint(
-      NSLayoutConstraint.constraintWithItem(
-        @notes_label,
-        attribute: NSLayoutAttributeRight,
-        relatedBy: NSLayoutRelationEqual,
-        toItem: self,
-        attribute: NSLayoutAttributeRight,
-        multiplier: 1.0,
-        constant: -20
+    addConstraints(
+      NSLayoutConstraint.constraintsWithVisualFormat(
+        'V:[top_layout_guide]-padding-[title_label]-padding-[notes_label]',
+        options: NSLayoutFormatDirectionLeadingToTrailing,
+        metrics: { 'padding' => 20 },
+        views: { 'top_layout_guide' => layout_guide, 'title_label' => @title_label, 'notes_label' => @notes_label }
       )
     )
   end
