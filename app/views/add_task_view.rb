@@ -38,7 +38,7 @@ class AddTaskView < UIView
   def init
     super
 
-    setBackgroundColor UIColor.whiteColor
+    self.backgroundColor = UIColor.whiteColor
 
     @title_label = UILabel.new
     @title_label.text = "Do the dishes"
